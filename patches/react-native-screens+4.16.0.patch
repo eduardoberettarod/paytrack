@@ -1,0 +1,30 @@
+diff --git a/node_modules/react-native-screens/android/CMakeLists.txt b/node_modules/react-native-screens/android/CMakeLists.txt
+index 86ec079..b6dcdb5 100644
+--- a/node_modules/react-native-screens/android/CMakeLists.txt
++++ b/node_modules/react-native-screens/android/CMakeLists.txt
+@@ -78,3 +78,5 @@ else()
+         android
+     )
+ endif()
++
++target_link_libraries(rnscreens c++_shared)
+diff --git a/node_modules/react-native-screens/android/build.gradle b/node_modules/react-native-screens/android/build.gradle
+index 114be81..a0996ff 100644
+--- a/node_modules/react-native-screens/android/build.gradle
++++ b/node_modules/react-native-screens/android/build.gradle
+@@ -138,6 +138,7 @@ android {
+         externalNativeBuild {
+             cmake {
+                 arguments "-DANDROID_STL=c++_shared",
++                        "-DCMAKE_ANDROID_STL_TYPE=c++_shared",
+                         "-DRNS_NEW_ARCH_ENABLED=${IS_NEW_ARCHITECTURE_ENABLED}",
+                         "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+             }
+@@ -149,6 +150,7 @@ android {
+     }
+     externalNativeBuild {
+         cmake {
++          version "3.31.1"
+             path "CMakeLists.txt"
+         }
+     }

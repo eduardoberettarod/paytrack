@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-native-worklets/android/CMakeLists.txt b/node_modules/react-native-worklets/android/CMakeLists.txt
+index 1d949d6..b07c7fa 100644
+--- a/node_modules/react-native-worklets/android/CMakeLists.txt
++++ b/node_modules/react-native-worklets/android/CMakeLists.txt
+@@ -94,7 +94,7 @@ endif()
+ # build shared lib
+ set_target_properties(worklets PROPERTIES LINKER_LANGUAGE CXX)
+ 
+-target_link_libraries(worklets log ReactAndroid::jsi fbjni::fbjni)
++target_link_libraries(worklets log c++_shared ReactAndroid::jsi fbjni::fbjni)
+ 
+ if(ReactAndroid_VERSION_MINOR GREATER_EQUAL 76)
+   target_link_libraries(worklets ReactAndroid::reactnative)
+diff --git a/node_modules/react-native-worklets/android/build.gradle b/node_modules/react-native-worklets/android/build.gradle
+index 021f5bc..0183411 100644
+--- a/node_modules/react-native-worklets/android/build.gradle
++++ b/node_modules/react-native-worklets/android/build.gradle
+@@ -188,6 +188,7 @@ android {
+         externalNativeBuild {
+             cmake {
+                 arguments "-DANDROID_STL=c++_shared",
++                        "-DCMAKE_ANDROID_STL_TYPE=c++_shared",
+                         "-DREACT_NATIVE_MINOR_VERSION=${REACT_NATIVE_MINOR_VERSION}",
+                         "-DANDROID_TOOLCHAIN=clang",
+                         "-DREACT_NATIVE_DIR=${toPlatformFileString(reactNativeRootDir.path)}",

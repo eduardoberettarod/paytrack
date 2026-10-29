@@ -1,0 +1,33 @@
+diff --git a/node_modules/expo-modules-core/android/CMakeLists.txt b/node_modules/expo-modules-core/android/CMakeLists.txt
+index 72e8d50..ee61c5f 100644
+--- a/node_modules/expo-modules-core/android/CMakeLists.txt
++++ b/node_modules/expo-modules-core/android/CMakeLists.txt
+@@ -131,6 +131,7 @@ target_link_libraries(
+   ${PACKAGE_NAME}
+   CommonSettings
+   ${LOG_LIB}
++  c++_shared
+   fbjni::fbjni
+   ReactAndroid::jsi
+   android
+diff --git a/node_modules/expo-modules-core/android/build.gradle b/node_modules/expo-modules-core/android/build.gradle
+index 7cc0433..e2d10b9 100644
+--- a/node_modules/expo-modules-core/android/build.gradle
++++ b/node_modules/expo-modules-core/android/build.gradle
+@@ -90,7 +90,8 @@ android {
+     externalNativeBuild {
+       cmake {
+         abiFilters(*reactNativeArchitectures())
+         arguments "-DANDROID_STL=c++_shared",
++          "-DCMAKE_ANDROID_STL_TYPE=c++_shared",
+           "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON",
+           "-DREACT_NATIVE_DIR=${expoModuleExtension.reactNativeDir}",
+           "-DREACT_NATIVE_TARGET_VERSION=${expoModuleExtension.reactNativeVersion.minor}",
+@@ -103,6 +104,7 @@ android {
+ 
+   externalNativeBuild {
+     cmake {
++      version "3.31.1"
+       path "CMakeLists.txt"
+     }
+   }
