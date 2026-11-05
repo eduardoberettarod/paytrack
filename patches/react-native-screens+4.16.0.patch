@@ -9,7 +9,7 @@ index 86ec079..b6dcdb5 100644
 +
 +target_link_libraries(rnscreens c++_shared)
 diff --git a/node_modules/react-native-screens/android/build.gradle b/node_modules/react-native-screens/android/build.gradle
-index 114be81..a0996ff 100644
+index 114f5bc..a0996ff 100644
 --- a/node_modules/react-native-screens/android/build.gradle
 +++ b/node_modules/react-native-screens/android/build.gradle
 @@ -138,6 +138,7 @@ android {
@@ -28,3 +28,11 @@ index 114be81..a0996ff 100644
              path "CMakeLists.txt"
          }
      }
+diff --git a/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt b/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt
+--- a/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt
++++ b/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt
+@@ -70,2 +70,4 @@
+ 
++target_link_libraries(${LIB_TARGET_NAME} c++_shared)
++
+ if(ReactAndroid_VERSION_MINOR GREATER_EQUAL 80)

@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-keyboard-controller/android/src/main/jni/CMakeLists.txt b/node_modules/react-native-keyboard-controller/android/src/main/jni/CMakeLists.txt
+index 9cf1a7d..37f62f8 100644
+--- a/node_modules/react-native-keyboard-controller/android/src/main/jni/CMakeLists.txt
++++ b/node_modules/react-native-keyboard-controller/android/src/main/jni/CMakeLists.txt
+@@ -68,6 +68,8 @@ else()
+   )
+ endif()
+ 
++target_link_libraries(${LIB_TARGET_NAME} c++_shared)
++
+ if(ReactAndroid_VERSION_MINOR GREATER_EQUAL 80)
+   target_compile_reactnative_options(${LIB_TARGET_NAME} PRIVATE)
+ else()
