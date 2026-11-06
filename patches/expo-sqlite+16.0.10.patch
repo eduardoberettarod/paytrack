@@ -1,0 +1,32 @@
+diff --git a/node_modules/expo-sqlite/android/CMakeLists.txt b/node_modules/expo-sqlite/android/CMakeLists.txt
+index c15cf92..dac1bdf 100644
+--- a/node_modules/expo-sqlite/android/CMakeLists.txt
++++ b/node_modules/expo-sqlite/android/CMakeLists.txt
+@@ -63,6 +63,7 @@ target_link_libraries(
+   ${LOG_LIB}
+   ${OPENSSL_CRYPTO_LIB}
+   ${LIBSQL_LIB}
++  c++_shared
+   fbjni::fbjni
+   android
+ )
+diff --git a/node_modules/expo-sqlite/android/build.gradle b/node_modules/expo-sqlite/android/build.gradle
+index 1f7cbd1..18b4414 100644
+--- a/node_modules/expo-sqlite/android/build.gradle
++++ b/node_modules/expo-sqlite/android/build.gradle
+@@ -60,6 +60,7 @@ android {
+       cmake {
+         abiFilters (*reactNativeArchitectures())
+         arguments "-DANDROID_STL=c++_shared",
++          "-DCMAKE_ANDROID_STL_TYPE=c++_shared",
+           "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON",
+           "-DSQLITE3_SRC_DIR=${toPlatformIndependentPath(SQLITE3_SRC_DIR)}",
+           "-DSQLITE_BUILDFLAGS=${getSQLiteBuildFlags()}",
+@@ -70,6 +71,7 @@ android {
+   }
+   externalNativeBuild {
+     cmake {
++      version "3.31.1"
+       path "CMakeLists.txt"
+     }
+   }

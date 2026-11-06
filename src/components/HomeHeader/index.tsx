@@ -1,24 +1,18 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-import { styles } from './style';
-import ProfileButton from '../ProfileButton';
+import { View, Text } from 'react-native'
+import React from 'react'
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { styles } from './styles'
+
 import HeaderGradient from '../HeaderGradient';
-import { getCurrentDateParts } from '@/utils/date';
+import { spacing } from '@/theme/layout';
 
 export default function HomeHeader() {
-  const { day, month, year } = getCurrentDateParts();
+
+  const insets = useSafeAreaInsets()
 
   return (
-    <HeaderGradient style={styles.container}>
-      <View style={styles.header}>
-        <ProfileButton />
-        <View>
-          <Text style={styles.greeting}>Olá, bem vindo!</Text>
-          <Text style={styles.date}>
-            {day} de {month} de {year}
-          </Text>
-        </View>
-      </View>
+    <HeaderGradient style={[styles.container, { paddingTop: insets.top + spacing.lg }]}>
+      <Text>HomeHeader</Text>
     </HeaderGradient>
-  );
+  )
 }

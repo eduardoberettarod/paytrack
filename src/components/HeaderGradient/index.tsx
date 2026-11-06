@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { GRADIENT, styles } from './style';
+import { GRADIENT, styles } from './styles';
 
 type HeaderGradientProps = {
   style?: StyleProp<ViewStyle>;
