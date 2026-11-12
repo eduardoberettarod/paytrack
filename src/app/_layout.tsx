@@ -5,6 +5,8 @@ import { Stack } from "expo-router";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from 'expo-status-bar';
+import TabBar from "@/components/TabBar";
+
 
 export default function RootLayout() {
   const [loaded, error] = useFonts(fontAssets)
@@ -17,10 +19,11 @@ export default function RootLayout() {
         <KeyboardProvider>
             <Stack screenOptions={{
               headerShown: false,
-              contentStyle: { backgroundColor: colors.onyx }
+              contentStyle: { backgroundColor: colors.bgPrimary }
             }}
             />
             <StatusBar hidden />
+          <TabBar />
         </KeyboardProvider>
     </SafeAreaProvider>
   )

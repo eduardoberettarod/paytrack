@@ -182,5 +182,11 @@ export const colors = {
   white: "#f3f7f3",
   translucent: "rgba(238, 238, 238, 0.5)",
   black: "#070D09",
-  onyx: "#111111"
+  onyx: "#0C0F12",
+  bgPrimary: "#08080B",
+  bgSecondary: "#15131C",
+  primaryColor: "#5700C9",
+  secondaryColor: "#791BEB",
+  tertiaryColor: "#A77AF5",
+  quaternaryColor: "#D7C6F5"
 };

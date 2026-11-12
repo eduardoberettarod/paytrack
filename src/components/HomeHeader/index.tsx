@@ -11,8 +11,9 @@ export default function HomeHeader() {
   const insets = useSafeAreaInsets()
 
   return (
-    <HeaderGradient style={[styles.container, { paddingTop: insets.top + spacing.lg }]}>
-      <Text>HomeHeader</Text>
-    </HeaderGradient>
+    <View style={[styles.container, { paddingTop: insets.top + spacing.lg }]}>
+
+
+    </View>
   )
 }

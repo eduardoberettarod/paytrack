@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { GRADIENT, styles } from './styles';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import Svg, { Defs, RadialGradient, Rect, Stop } from 'react-native-svg';
+import { GLOW, styles } from './styles';
 
 type HeaderGradientProps = {
   style?: StyleProp<ViewStyle>;
@@ -10,14 +10,34 @@ type HeaderGradientProps = {
 
 export default function HeaderGradient({ style, children }: HeaderGradientProps) {
   return (
-    <LinearGradient
-      colors={GRADIENT.colors}
-      locations={GRADIENT.locations}
-      start={GRADIENT.start}
-      end={GRADIENT.end}
-      style={[styles.container, style]}
-    >
+    <View style={[styles.container, style]}>
+      {/* Glow decorativo: fixo, atrás do conteúdo, não captura toques */}
+      <View pointerEvents="none" style={styles.glow}>
+        <Svg width={GLOW.size} height={GLOW.size}>
+          <Defs>
+            {/* centro no canto superior esquerdo do SVG, raio = lado inteiro */}
+            <RadialGradient
+              id="headerGlow"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="objectBoundingBox"
+            >
+              {GLOW.stops.map((s) => (
+                <Stop
+                  key={s.offset}
+                  offset={s.offset}
+                  stopColor={GLOW.color}
+                  stopOpacity={s.opacity}
+                />
+              ))}
+            </RadialGradient>
+          </Defs>
+          <Rect width="100%" height="100%" fill="url(#headerGlow)" />
+        </Svg>
+      </View>
+
       {children}
-    </LinearGradient>
+    </View>
   );
 }
