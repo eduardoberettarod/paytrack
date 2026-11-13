@@ -1,22 +1,25 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '@/theme/colors';
+
+const { secondaryColor: primary, tertiaryColor: secondary } = colors;
 
 export const GLOW = {
-  size: 640,                // área do SVG, fixa (não depende da tela)
-  color: '#5700C9',         // colors.primaryColor
-  offsetX: -90,             // centro do brilho um pouco fora da tela
+  size: 640,
+  offsetX: -90,
   offsetY: -90,
-  radius: 360,              // raio base do halo
-  stretch: 1.5,             // alongamento ao longo da diagonal
-  squash: 0.7,              // achatamento perpendicular à diagonal
-  angle: 45,                // direção: topo-esquerda para baixo-direita
+  radius: 360,
+  stretch: 1.5,
+  squash: 0.7,
+  angle: 45,
+  // cada parada tem sua própria cor + opacidade
   stops: [
-    { offset: 0,    opacity: 0.65 },
-    { offset: 0.15, opacity: 0.5 },
-    { offset: 0.3,  opacity: 0.34 },
-    { offset: 0.5,  opacity: 0.17 },
-    { offset: 0.7,  opacity: 0.06 },
-    { offset: 0.88, opacity: 0.015 },
-    { offset: 1,    opacity: 0 },
+    { offset: 0,    color: secondary, opacity: 0.65 },
+    { offset: 0.15, color: secondary, opacity: 0.5 },
+    { offset: 0.3,  color: secondary, opacity: 0.34 },
+    { offset: 0.5,  color: primary,   opacity: 0.17 },
+    { offset: 0.7,  color: primary,   opacity: 0.06 },
+    { offset: 0.88, color: primary,   opacity: 0.015 },
+    { offset: 1,    color: primary,   opacity: 0 },
   ],
 } as const;
 

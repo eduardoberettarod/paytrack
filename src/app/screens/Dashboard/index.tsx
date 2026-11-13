@@ -1,14 +1,25 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { styles } from './styles';
 
-import HomeHeader from '@/components/HomeHeader';
 import HeaderGradient from '@/components/HeaderGradient';
+import HeaderCard from '@/components/HeaderCard';
+import { spacing } from '@/theme/layout';
 
 export default function Dashboard() {
+  
+  const insets = useSafeAreaInsets()
+
+
   return (
     <View>
       <HeaderGradient>
-        <HomeHeader />
+
+        <View style={[styles.container, { paddingTop: insets.top + spacing.lg }]}>
+          <HeaderCard />
+        </View>
+
       </HeaderGradient>
     </View>
   )

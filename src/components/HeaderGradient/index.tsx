@@ -10,7 +10,7 @@ type HeaderGradientProps = {
 
 export default function HeaderGradient({ style, children }: HeaderGradientProps) {
   return (
-    <View style={[styles.container, style]}>
+    <View style={style}>
       {/* Glow decorativo: fixo, atrás do conteúdo, não captura toques */}
       <View pointerEvents="none" style={styles.glow}>
         <Svg width={GLOW.size} height={GLOW.size}>
@@ -27,7 +27,7 @@ export default function HeaderGradient({ style, children }: HeaderGradientProps)
                 <Stop
                   key={s.offset}
                   offset={s.offset}
-                  stopColor={GLOW.color}
+                  stopColor={s.color}      // antes: GLOW.color
                   stopOpacity={s.opacity}
                 />
               ))}

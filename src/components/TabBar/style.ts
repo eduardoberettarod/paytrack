@@ -9,8 +9,6 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     overflow: 'hidden',
     borderRadius: 100,
-    borderWidth: 1,
-    borderColor: colors.gray[700],
   },
   blur: {
     paddingHorizontal: 10,

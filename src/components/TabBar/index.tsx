@@ -4,13 +4,14 @@ import { BlurView } from 'expo-blur'
 import { usePathname, useRouter } from 'expo-router'
 import { styles } from './style';
 import TabBarIcon from '../TabBarIcon';
+import GlassCard from '../GlassCard';
 
 const tabs = [
   { name: 'house', route: '/screens/Dashboard' },
   { name: 'history', route: '/screens/History' },
   { name: 'add', route: '/screens/Register' },
-  { name: 'person', route: '/screens/Profile' },
   { name: 'category', route: '/screens/Category' },
+  { name: 'person', route: '/screens/Profile' },
 ] as const
 
 // Barra de navegação inferior com blur, que destaca a aba da rota atual e se esconde nas telas de tela cheia (Register, About e detalhes do histórico).
@@ -32,7 +33,7 @@ export default function TabBar() {
   return (
     <View>
       <View style={styles.container}>
-        <BlurView style={styles.blur} tint={'dark'} intensity={100}>
+        <GlassCard contentStyle={styles.blur} radius={100} intensity={100}>
           {tabs.map((tab) => (
             <TabBarIcon
               key={tab.name}
@@ -42,7 +43,7 @@ export default function TabBar() {
               onPress={() => router.push(tab.route)}
             />
           ))}
-        </BlurView>
+        </GlassCard>
       </View>
     </View>
   )

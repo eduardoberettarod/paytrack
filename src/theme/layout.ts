@@ -10,7 +10,17 @@ export const spacing = {
 export const radius = {
   sm: 12,
   md: 16,
-  lg: 20,
-  xl: 36,
+  lg: 24,
+  xl: 28,
+  xxl: 36,
   pill: 999,
+} as const;
+
+export const fontSize = {
+  xs: 11,
+  sm: 14,
+  md: 16,
+  lg: 18,
+  xl: 20,
+  xxl: 28,
 } as const;
