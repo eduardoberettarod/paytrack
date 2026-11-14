@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     borderRadius: 100,
   },
   blur: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     paddingVertical: 10,
     flexDirection: 'row',
     gap: 6,
