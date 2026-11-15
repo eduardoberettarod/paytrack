@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
-import Svg, { Defs, RadialGradient, Rect, Stop } from 'react-native-svg';
-import { GLOW, styles } from './styles';
+import GlowBlob from '@/components/GlowBlob';
+import { BLOBS, styles } from './styles';
 
 type HeaderGradientProps = {
   style?: StyleProp<ViewStyle>;
@@ -11,30 +11,16 @@ type HeaderGradientProps = {
 export default function HeaderGradient({ style, children }: HeaderGradientProps) {
   return (
     <View style={style}>
-      {/* Glow decorativo: fixo, atrás do conteúdo, não captura toques */}
+      {/* Glow animado: atrás do conteúdo, não captura toques */}
       <View pointerEvents="none" style={styles.glow}>
-        <Svg width={GLOW.size} height={GLOW.size}>
-          <Defs>
-            {/* centro no canto superior esquerdo do SVG, raio = lado inteiro */}
-            <RadialGradient
-              id="headerGlow"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="objectBoundingBox"
-            >
-              {GLOW.stops.map((s) => (
-                <Stop
-                  key={s.offset}
-                  offset={s.offset}
-                  stopColor={s.color}      // antes: GLOW.color
-                  stopOpacity={s.opacity}
-                />
-              ))}
-            </RadialGradient>
-          </Defs>
-          <Rect width="100%" height="100%" fill="url(#headerGlow)" />
-        </Svg>
+        {BLOBS.map((blob) => (
+          <GlowBlob
+            key={blob.id}
+            {...blob}
+            scale={[blob.scale[0], blob.scale[1]]}
+            opacity={[blob.opacity[0], blob.opacity[1]]}
+          />
+        ))}
       </View>
 
       {children}

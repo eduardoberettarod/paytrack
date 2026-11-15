@@ -7,7 +7,7 @@ import TabBarIcon from '../TabBarIcon';
 import GlassCard from '../GlassCard';
 
 const tabs = [
-  { name: 'house', route: '/screens/Dashboard' },
+  { name: 'dashboard', route: '/screens/Dashboard' },
   { name: 'history', route: '/screens/History' },
   { name: 'add', route: '/screens/Register' },
   { name: 'category', route: '/screens/Category' },

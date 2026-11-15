@@ -1,34 +1,54 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '@/theme/colors';
 
-const { secondaryColor: primary, tertiaryColor: secondary } = colors;
+const { primaryColor, secondaryColor, tertiaryColor, quaternaryColor } = colors;
 
-export const GLOW = {
-  size: 640,
-  offsetX: -90,
-  offsetY: -90,
-  radius: 360,
-  stretch: 1.5,
-  squash: 0.7,
-  angle: 45,
-  // cada parada tem sua própria cor + opacidade
-  stops: [
-    { offset: 0,    color: secondary, opacity: 0.65 },
-    { offset: 0.15, color: secondary, opacity: 0.5 },
-    { offset: 0.3,  color: secondary, opacity: 0.34 },
-    { offset: 0.5,  color: primary,   opacity: 0.17 },
-    { offset: 0.7,  color: primary,   opacity: 0.06 },
-    { offset: 0.88, color: primary,   opacity: 0.015 },
-    { offset: 1,    color: primary,   opacity: 0 },
-  ],
-} as const;
+// Três "ondas" de luz em camadas, cada uma com ritmo próprio.
+// Ao se sobrepor e pulsar em tempos diferentes, as cores vão se misturando.
+export const BLOBS = [
+  {
+    id: 'glowA',
+    size: 720,
+    inner: secondaryColor,
+    outer: primaryColor,
+    position: { top: -330, left: -300 },
+    duration: 16000,
+    delay: 0,
+    driftX: 70,
+    driftY: 40,
+    scale: [0.97, 1.1],
+    opacity: [0.8, 1],
+  },
+  {
+    id: 'glowB',
+    size: 600,
+    inner: tertiaryColor,
+    outer: secondaryColor,
+    position: { top: -260, right: -280 },
+    duration: 21000,
+    delay: 3000,
+    driftX: 60,
+    driftY: 50,
+    scale: [0.9, 1.12],
+    opacity: [0.3, 0.8],
+  },
+  {
+    id: 'glowC',
+    size: 460,
+    inner: quaternaryColor,
+    outer: tertiaryColor,
+    position: { top: -120, left: 40 },
+    duration: 26000,
+    delay: 6000,
+    driftX: 90,
+    driftY: 30,
+    scale: [0.9, 1.08],
+    opacity: [0.05, 0.35],
+  },
+] as const;
 
 export const styles = StyleSheet.create({
   glow: {
-    position: 'absolute',
-    top: GLOW.offsetY,
-    left: GLOW.offsetX,
-    width: GLOW.size,
-    height: GLOW.size,
+    ...StyleSheet.absoluteFillObject,
   },
 });

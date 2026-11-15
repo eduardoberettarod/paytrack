@@ -4,6 +4,8 @@ import { spacing } from '@/theme/layout';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    flexDirection: 'column',
+    gap: 24
   }
 });
