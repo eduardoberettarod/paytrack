@@ -1,4 +1,4 @@
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native'
+import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
 import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from './style';
@@ -12,23 +12,20 @@ type TabBarIconProps = TouchableOpacityProps & {
   active?: boolean
 }
 
-// Ícone clicável de uma aba da TabBar, com estilo diferente quando a aba está ativa.
+// Ícone clicável de uma aba da TabBar. Quando a aba está ativa, o ícone fica branco e um pontinho de luz aparece embaixo dele.
 export default function TabBarIcon({ name, size = 24, active = false, style, ...rest }: TabBarIconProps) {
   return (
     <TouchableOpacity
-      style={[
-        styles.button,
-        active ? styles.activeButton : styles.inactiveButton,
-        style,
-      ]}
+      style={[styles.button, style]}
       {...rest}
       activeOpacity={0.8}
     >
       <MaterialIcons
         name={name}
         size={size}
-        color={active ? colors.black : colors.gray[700]}
+        color={active ? colors.white : colors.gray[700]}
       />
+      {active && <View style={styles.dot} />}
     </TouchableOpacity>
   )
 }
