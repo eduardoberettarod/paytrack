@@ -6,6 +6,7 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from 'expo-status-bar';
 import TabBar from "@/components/TabBar";
+import SwipeNavigator from "@/components/SwipeNavigator";
 
 
 export default function RootLayout() {
@@ -17,11 +18,13 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
         <KeyboardProvider>
-            <Stack screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: colors.bgPrimary }
-            }}
-            />
+            <SwipeNavigator>
+              <Stack screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: colors.bgPrimary }
+              }}
+              />
+            </SwipeNavigator>
             <StatusBar hidden />
           <TabBar />
         </KeyboardProvider>

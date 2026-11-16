@@ -6,12 +6,7 @@ import { styles } from './style';
 import TabBarIcon from '../TabBarIcon';
 import GlassCard from '../GlassCard';
 import RegisterButton from '../RegisterButton';
-
-const tabs = [
-  { name: 'home', route: '/screens/Dashboard' },
-  { name: 'history', route: '/screens/History' },
-  { name: 'category', route: '/screens/Category' },
-] as const
+import { getTabIndex, tabs } from '@/constants/tabs';
 
 // Barra de navegação inferior com blur, que destaca a aba da rota atual e se esconde nas telas de tela cheia (Register, About e detalhes do histórico).
 export default function TabBar() {
@@ -27,8 +22,7 @@ export default function TabBar() {
   //   return null
   // }
 
-  const activeTab =
-    pathname === '/' ? 'home' : tabs.find((tab) => tab.route === pathname)?.name
+  const activeTab = tabs[getTabIndex(pathname)]?.name
 
   return (
     <View style={styles.bar}>
