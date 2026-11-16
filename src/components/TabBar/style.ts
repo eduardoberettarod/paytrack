@@ -2,11 +2,17 @@ import { colors } from '@/theme/colors';
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  container: {
-    bottom: 50,
-    left: '50%',
-    transform: [{translateX: '-50%'}],
+  bar: {
     position: 'absolute',
+    bottom: 50,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    columnGap: 18,
+  },
+  container: {
     overflow: 'hidden',
     borderRadius: 100,
   },

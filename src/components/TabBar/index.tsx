@@ -5,13 +5,12 @@ import { usePathname, useRouter } from 'expo-router'
 import { styles } from './style';
 import TabBarIcon from '../TabBarIcon';
 import GlassCard from '../GlassCard';
+import RegisterButton from '../RegisterButton';
 
 const tabs = [
-  { name: 'dashboard', route: '/screens/Dashboard' },
+  { name: 'home', route: '/screens/Dashboard' },
   { name: 'history', route: '/screens/History' },
-  { name: 'add', route: '/screens/Register' },
   { name: 'category', route: '/screens/Category' },
-  { name: 'person', route: '/screens/Profile' },
 ] as const
 
 // Barra de navegação inferior com blur, que destaca a aba da rota atual e se esconde nas telas de tela cheia (Register, About e detalhes do histórico).
@@ -31,7 +30,7 @@ export default function TabBar() {
   const activeTab = tabs.find((tab) => tab.route === pathname)?.name ?? 'house'
 
   return (
-    <View>
+    <View style={styles.bar}>
       <View style={styles.container}>
         <GlassCard contentStyle={styles.blur} radius={100} intensity={100}>
           {tabs.map((tab) => (
@@ -45,6 +44,7 @@ export default function TabBar() {
           ))}
         </GlassCard>
       </View>
+      <RegisterButton />
     </View>
   )
 }

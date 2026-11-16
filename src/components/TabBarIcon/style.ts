@@ -19,13 +19,5 @@ export const styles = StyleSheet.create({
   },
   inactiveButton: {
     backgroundColor: 'transparent',
-  },
-  addButton: {
-    backgroundColor: colors.tertiaryColor,
-    shadowColor: colors.tertiaryColor,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    elevation: 8
-  },
+  }
 });

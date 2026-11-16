@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from './style';
 import { colors } from '@/theme/colors';
 
-type IconName = 'dashboard' | 'history' | 'person' | 'category' | 'add'
+type IconName = 'home' | 'history' | 'category'
 
 type TabBarIconProps = TouchableOpacityProps & {
   name: IconName
@@ -18,11 +18,7 @@ export default function TabBarIcon({ name, size = 24, active = false, style, ...
     <TouchableOpacity
       style={[
         styles.button,
-        name === 'add'
-          ? styles.addButton
-          : active
-            ? styles.activeButton
-            : styles.inactiveButton,
+        active ? styles.activeButton : styles.inactiveButton,
         style,
       ]}
       {...rest}
@@ -31,7 +27,7 @@ export default function TabBarIcon({ name, size = 24, active = false, style, ...
       <MaterialIcons
         name={name}
         size={size}
-        color={name === 'add' || active ? colors.black : colors.gray[700]}
+        color={active ? colors.black : colors.gray[700]}
       />
     </TouchableOpacity>
   )
