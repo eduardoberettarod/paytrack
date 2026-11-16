@@ -27,7 +27,8 @@ export default function TabBar() {
   //   return null
   // }
 
-  const activeTab = tabs.find((tab) => tab.route === pathname)?.name ?? 'house'
+  const activeTab =
+    pathname === '/' ? 'home' : tabs.find((tab) => tab.route === pathname)?.name
 
   return (
     <View style={styles.bar}>

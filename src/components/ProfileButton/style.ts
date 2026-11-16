@@ -3,6 +3,9 @@ import { colors } from '@/theme/colors'
 import { radius } from '@/theme/layout';
 
 export const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'flex-start',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
