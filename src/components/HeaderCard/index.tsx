@@ -5,11 +5,25 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import GlassCard from '@/components/GlassCard';
 import EyeButton from '@/components/EyeButton';
+import ProgressBar from '@/components/ProgressBar';
 import { radius } from '@/theme/layout';
 import Separator from '@/components/Separator';
 import { colors } from '@/theme/colors';
+import { formatCurrency } from '@/utils/currency';
 
-export default function HeaderCard() {
+type HeaderCardProps = {
+  paidCount?: number;        // contas já pagas
+  totalCount?: number;       // total de contas do mês
+  remainingAmount?: number;  // valor (R$) que ainda falta pagar
+};
+
+export default function HeaderCard({
+  paidCount = 0,
+  totalCount = 0,
+  remainingAmount = 0,
+}: HeaderCardProps) {
+  const percentage = totalCount > 0 ? Math.min(100, (paidCount / totalCount) * 100) : 0;
+
   return (
     <GlassCard radius={radius.xl} contentStyle={styles.content}>
       <View style={styles.header}>
@@ -25,12 +39,26 @@ export default function HeaderCard() {
       </View>
 
       <View>
-        <View style={styles.containerPercentage}>
-          <FontAwesome name="circle" size={6} color={colors.gray[300]} />
-          <Text style={styles.label}>Status Orçamentário</Text>
+        <View style={styles.statusHeader}>
+          <View style={styles.containerPercentage}>
+            <FontAwesome name="circle" size={6} color={colors.gray[300]} />
+            <Text style={styles.label}>Status Orçamentário</Text>
+          </View>
+          <Text style={styles.percentage}>{Math.round(percentage)}%</Text>
+        </View>
+
+        <ProgressBar percentage={percentage} style={styles.progress} />
+
+        <View style={styles.statusFooter}>
+          <Text style={styles.label}>
+            <Text style={styles.highlight}>{paidCount}</Text> de{' '}
+            <Text style={styles.highlight}>{totalCount}</Text> contas pagas
+          </Text>
+          <Text style={styles.label}>
+            Faltam <Text style={styles.highlight}>{formatCurrency(remainingAmount)}</Text>
+          </Text>
         </View>
       </View>
-
     </GlassCard>
   );
 }
