@@ -20,5 +20,10 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.semiBold,
     color: colors.gray[100],
     fontSize: fontSize.xxl
+  },
+  containerPercentage: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12
   }
 });
