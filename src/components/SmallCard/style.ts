@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     padding: 18
   },
   icon: {
-    backgroundColor: colors.sky[600],
     padding: 12,
     borderRadius: radius.pill,
     alignItems: 'center',

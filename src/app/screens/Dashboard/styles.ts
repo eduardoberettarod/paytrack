@@ -5,7 +5,6 @@ import { fonts } from '@/theme/fonts';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
     flexDirection: 'column',
     gap: 24
   },

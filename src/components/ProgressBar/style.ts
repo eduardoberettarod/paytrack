@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/theme/colors';
 import { radius } from '@/theme/layout';
 
 export const BAR = {
@@ -8,17 +7,15 @@ export const BAR = {
   duration: 600,
 } as const;
 
+// cores e altura vêm por props (com padrões no index.tsx)
 export const styles = StyleSheet.create({
   track: {
     width: '100%',
-    height: BAR.height,
     borderRadius: radius.pill,
-    backgroundColor: colors.gray[800],
     overflow: 'hidden',
   },
   fill: {
     height: '100%',
     borderRadius: radius.pill,
-    backgroundColor: colors.secondaryColor,
   },
 });
