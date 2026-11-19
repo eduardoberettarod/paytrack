@@ -8,6 +8,7 @@ import { radius } from '@/theme/layout';
 import { formatCurrency } from '@/utils/currency';
 import GlassCard from '../GlassCard';
 import ProgressBar from '../ProgressBar';
+import { LinearGradient } from 'expo-linear-gradient';
 
 type SmallCardProps = {
   title: string;                                          // ex: "Comida"
@@ -26,14 +27,17 @@ export default function SmallCard({
 }: SmallCardProps) {
   const percentage = limit > 0 ? Math.min(100, (spent / limit) * 100) : 0;
   const percentageLabel = `${percentage.toFixed(1).replace('.', ',')}%`;
+  const gradientColor = `${color}45`;
 
   return (
     <GlassCard style={styles.card} contentStyle={styles.container} radius={radius.xl}>
 
       <View style={styles.header}>
-        <View style={[styles.icon, { backgroundColor: color }]}>
-          <MaterialCommunityIcons name={icon} size={18} color="black" />
-        </View>
+        <GlassCard radius={radius.pill}>
+          <LinearGradient style={styles.icon} colors={['transparent', gradientColor]}>
+            <MaterialCommunityIcons name={icon} size={18} color={color} />
+          </LinearGradient>
+        </GlassCard>
         <Text style={styles.percentage}>{percentageLabel}</Text>
       </View>
 

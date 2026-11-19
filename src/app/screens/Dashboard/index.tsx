@@ -22,7 +22,11 @@ export default function Dashboard() {
       <HeaderGradient>
 
         <View style={styles.container}>
-          <View>
+          <View style={styles.header}>
+            <View style={styles.textContainer}>
+              <Text style={styles.title}>Eduardo</Text>
+              <Text style={styles.welcome}>Bem vindo!</Text>
+            </View>
             <ProfileButton />
           </View>
 
@@ -75,7 +79,7 @@ export default function Dashboard() {
                   icon="food-outline"
                   color={colors.sky[600]}
                 />
-                
+
                 <SmallCard
                   title="Transporte"
                   spent={310}

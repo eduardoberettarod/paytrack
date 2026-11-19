@@ -17,5 +17,23 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8
+  },
+  welcome: {
+    fontFamily: fonts.regular,
+    color: colors.gray[500],
+    fontSize: fontSize.md
+  },
+  textContainer: {
+
+  },
+  title: {
+    fontFamily: fonts.bold,
+    color: colors.white,
+    fontSize: fontSize.xxl
+  },  
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   }
 });
