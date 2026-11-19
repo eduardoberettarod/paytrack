@@ -1,10 +1,13 @@
 import { StyleSheet } from 'react-native'
 import { colors } from '@/theme/colors'
 
+export const REGISTER_BUTTON_SIZE = 56
+
 export const styles = StyleSheet.create({
   addButton: {
-    padding: 14,
-    borderRadius: 33,
+    width: REGISTER_BUTTON_SIZE,
+    height: REGISTER_BUTTON_SIZE,
+    borderRadius: REGISTER_BUTTON_SIZE / 2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.tertiaryColor,

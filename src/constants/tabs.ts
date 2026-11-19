@@ -1,8 +1,10 @@
-// Telas que fazem parte da TabBar, na ordem em que aparecem.
+// Telas que fazem parte da TabBar, na ordem em que aparecem (da esquerda para a direita).
+// As duas primeiras ficam à esquerda do botão de cadastro e as duas últimas à direita.
 export const tabs = [
   { name: 'home', route: '/screens/Dashboard' },
   { name: 'history', route: '/screens/History' },
   { name: 'category', route: '/screens/Category' },
+  { name: 'settings', route: '/screens/Settings' },
 ] as const
 
 // Retorna a posição da aba da rota atual, ou -1 se a rota não for uma aba.

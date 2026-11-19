@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from './style';
 import { colors } from '@/theme/colors';
 
-type IconName = 'home' | 'history' | 'category'
+type IconName = 'home' | 'history' | 'category' | 'settings'
 
 type TabBarIconProps = TouchableOpacityProps & {
   name: IconName
